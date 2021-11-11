@@ -18,13 +18,16 @@ user_input = int(input('Entery option: ')); t.sleep(0.5)
 
 if user_input == 1:
     # print("Pillow Version: ",PIL.__version__)
-
+    counter  = 0 #counter for showing the message on frame
     cap = cv2.VideoCapture(0, cv2.CAP_DSHOW) #take image from camera
     cv2.namedWindow('frame',cv2.WINDOW_NORMAL) #name of the window containing the video frames
     cv2.resizeWindow('frame', 800,800)  #name , width , height
     while(cap.isOpened()):
         ret, frame = cap.read() #ret returns state value from getting camera frame either true or false
+        if counter<= 40:
+            cv2.putText(frame,'Press Q to exit camera',(5,45),1,2,(255,0,0),2,2)
         # print(frame.shape)
+        counter += 1
         cv2.imshow('frame',frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
