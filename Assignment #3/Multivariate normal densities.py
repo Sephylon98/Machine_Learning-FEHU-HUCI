@@ -7,7 +7,7 @@ import os
 import seaborn as sn
 import matplotlib.pyplot as plt
 
-os.chdir(r'C:\Users\Midox\Documents\Python Scripts\Machine_Learning-FEHU-HUCI\Assignment #2') #remove this for your code
+os.chdir(r'C:\Users\Midox\Documents\Python Scripts\Machine_Learning-FEHU-HUCI\Assignment #3') #remove this for your code
 
 x = np.array([1.8 , -0.56 , 1.51]).reshape(3,1) #feature vector of unknown pattern
 print("feature vector of unknown pattern: ",x)
