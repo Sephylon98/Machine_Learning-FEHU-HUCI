@@ -61,9 +61,9 @@ plt.show()
 
 def discriminant_fun(covMatrix,feature_vector,u):
     ainv_covMatrix = np.linalg.inv(covMatrix)
-    row_vector = (-1/2)*np.log(np.linalg.det(covMatrix))- (1/2)*(feature_vector.reshape(1,3) - u1.reshape(1,3))
-    col_vector = np.dot(ainv_covMatrix,(feature_vector-u)) + np.log(1/3)
-    return np.dot(row_vector,col_vector) # 1x3 dot product 3x1 = 1x1 matrix
+    row_vector = (1/2) * (feature_vector-u1).reshape(1,3)
+    col_vector = ainv_covMatrix @ (feature_vector-u)
+    return -(1/2)*np.log(np.linalg.det(covMatrix)) - (row_vector @ col_vector) # 1x3 dot product 3x1 = 1x1 matrix
 
 g1_x = discriminant_fun(covMatrix1,x,u1)
 g2_x = discriminant_fun(covMatrix2,x,u2)
